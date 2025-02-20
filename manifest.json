@@ -1,0 +1,39 @@
+{
+    "name": "Mi Panadería Online",
+    "short_name": "Panadería",
+    "description": "Tienda de panes en línea con una gran variedad de productos.",
+    "lang": "es-mx",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#d2691e",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "/img/icon/icon1.png",
+            "sizes": "500x500",
+            "type": "image/png"
+        },
+        {
+            "src": "/img/icon/icon2.png",
+            "sizes": "500x500",
+            "type": "image/png"
+        }
+    ],
+    "screenshots": [
+        {
+            "src": "/img/screenshots/cap1.png",
+            "sizes": "1842x885",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/img/screenshots/cap2.png",
+            "sizes": "427x765",
+            "type": "image/png",
+            "form_factor": "narrow"
+        }
+    ],
+    "id": "/",
+    "start_url": "/index.html",
+    "scope": "/"
+}
