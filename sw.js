@@ -113,10 +113,28 @@ self.addEventListener('fetch', event => {
 });
 
 
-//  Notificaciones push
-self.addEventListener("install", (event) => {
+self.addEventListener('install', event => {
+    console.log('SW');
+
+    event.waitUntil(
+        caches.open(CACHE_NAME).then(async cache => {
+            let cachePromises = URLS_TO_CACHE.map(async url => {
+                try {
+                    let response = await fetch(url);
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                    return cache.put(url, response);
+                } catch (error) {
+                    console.error(` Error cacheando ${url}:`, error);
+                }
+            });
+
+            return Promise.all(cachePromises);
+        })
+    );
+
+    // Notificación push
     self.registration.showNotification("Bienvenido a Placer Culposo", {
         body: "Disfruta de nuestros deliciosos postres",
-        icon: "/img/icon.png" 
+        icon: "/img/icon.png"
     });
 });
